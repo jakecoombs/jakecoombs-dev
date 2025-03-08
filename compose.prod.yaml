@@ -1,6 +1,6 @@
 services:
-  next-app:
-    container_name: next-app
+  jc-frontend:
+    container_name: jc-frontend
     build:
       context: ./next-app
       dockerfile: prod.Dockerfile
@@ -8,15 +8,13 @@ services:
         ENV_VARIABLE: ${ENV_VARIABLE}
         NEXT_PUBLIC_ENV_VARIABLE: ${NEXT_PUBLIC_ENV_VARIABLE}
     restart: always
+    env_file:
+      - .env.production.local
     ports:
       - 3000:3000
     networks:
       - net
 
-  # Add more containers below (nginx, postgres, etc.)
-
-# Define a network, which allows containers to communicate
-# with each other, by using their container name as a hostname
 networks:
   net:
     external: true
