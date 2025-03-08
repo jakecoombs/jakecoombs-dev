@@ -43,7 +43,7 @@ First, run the development server:
 ```bash
 # Create a network, which allows containers to communicate
 # with each other, by using their container name as a hostname
-docker network create my_network
+docker network create net
 
 # Build dev
 docker compose -f compose.dev.yaml build
@@ -65,7 +65,7 @@ First, run the production server (Final image approximately 110 MB).
 ```bash
 # Create a network, which allows containers to communicate
 # with each other, by using their container name as a hostname
-docker network create my_network
+docker network create net
 
 # Build prod
 docker compose -f compose.prod.yaml build
@@ -79,7 +79,7 @@ Alternatively, run the production server without multistage builds (Final image 
 ```bash
 # Create a network, which allows containers to communicate
 # with each other, by using their container name as a hostname
-docker network create my_network
+docker network create net
 
 # Build prod without multistage
 docker compose -f compose.prod-without-multistage.yaml build
