@@ -1,20 +1,11 @@
 services:
-  jc-frontend:
-    container_name: jc-frontend
+  frontend:
+    container_name: frontend
     build:
-      context: ./next-app
+      context: ./frontend
       dockerfile: prod.Dockerfile
-      args:
-        ENV_VARIABLE: ${ENV_VARIABLE}
-        NEXT_PUBLIC_ENV_VARIABLE: ${NEXT_PUBLIC_ENV_VARIABLE}
     restart: always
     env_file:
-      - .env.production.local
+      - .env
     ports:
       - 3000:3000
-    networks:
-      - net
-
-networks:
-  net:
-    external: true
